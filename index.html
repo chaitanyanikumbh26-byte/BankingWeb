@@ -9,12 +9,21 @@
 </head>
 <body>
 
+  <!-- Hidden Checkboxes for Pure CSS Interactivity -->
+  <input type="checkbox" id="mobile-menu-toggle" class="css-toggle" aria-hidden="true">
+  <input type="checkbox" id="login-modal-toggle" class="css-toggle" aria-hidden="true">
+  <input type="checkbox" id="account-modal-toggle" class="css-toggle" aria-hidden="true">
+
+  <!-- Header & Navigation -->
   <header class="navbar flex justify-between align-center container">
     <div class="logo flex align-center">
-      <img src="bank-logo1.png" alt="TrustPay Bank Logo">
-      <span class="bank-name">TrustPay Bank</span>
+      <a href="#" class="logo-link flex align-center">
+        <img src="bank-logo1.png" alt="TrustPay Bank Logo">
+        <span class="bank-name">TrustPay Bank</span>
+      </a>
     </div>
 
+    <!-- Desktop & Mobile Navigation Links -->
     <nav class="nav-links flex align-center" aria-label="Main Navigation">
       <a href="#accounts">Accounts</a>
       <a href="#loans">Loans</a>
@@ -23,24 +32,136 @@
       <a href="#contact">Contact</a>
     </nav>
 
+    <!-- Action Buttons -->
     <div class="actions flex align-center">
-      <button class="search-btn" aria-label="Search">🔍</button>
-      <button class="login-btn">Log in</button>
-      <button class="cta-btn">Open Account</button>
+      <button class="search-btn" aria-label="Search site">🔍</button>
+      <label for="login-modal-toggle" class="login-btn">Log in</label>
+      <label for="account-modal-toggle" class="cta-btn desktop-cta">Open Account</label>
+      
+      <!-- Hamburger Toggle Icon for Mobile -->
+      <label for="mobile-menu-toggle" class="hamburger-btn" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
     </div>
   </header>
 
+  <!-- Mobile Slide-out Drawer Menu -->
+  <aside class="mobile-drawer" aria-label="Mobile Navigation Drawer">
+    <div class="drawer-header flex justify-between align-center">
+      <span class="bank-name">TrustPay Menu</span>
+      <label for="mobile-menu-toggle" class="close-drawer">&times;</label>
+    </div>
+    <nav class="drawer-links flex flex-col">
+      <a href="#accounts">Accounts</a>
+      <a href="#loans">Loans</a>
+      <a href="#investments">Investments</a>
+      <a href="#support">Support</a>
+      <a href="#contact">Contact</a>
+      <label for="account-modal-toggle" class="cta-btn text-center mt-1">Open Account</label>
+    </nav>
+  </aside>
+  <label for="mobile-menu-toggle" class="drawer-backdrop"></label>
+
+  <!-- Main Hero Section -->
   <main class="main-section flex justify-between align-center container">
     <div class="main-text">
       <h1>Banking Made Simple &amp; Secure</h1>
-      <p>Experience seamless digital banking with TrustBest Bank — where your money grows safely and smartly.</p>
-      <button class="cta-btn">Get Started</button>
+      <p>Experience seamless digital banking with TrustPay Bank — where your money grows safely and smartly.</p>
+      <div class="hero-actions flex gap-1">
+        <label for="account-modal-toggle" class="cta-btn">Get Started</label>
+        <a href="#learn-more" class="secondary-btn">Explore Features</a>
+      </div>
     </div>
 
     <div class="main-image">
       <img src="bank-illustration.png" alt="Digital Banking Illustration">
     </div>
+
   </main>
+<!-- Interactive FAQ Section -->
+<section class="faq-section container">
+  <h2>Frequently Asked Questions</h2>
+
+  <details class="faq-item">
+    <summary>How do I open a TrustPay account?</summary>
+    <p>You can click the "Open Account" button in the navigation bar to fill out our instant 2-minute application form.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Are there any monthly maintenance fees?</summary>
+    <p>No, TrustPay checking and savings accounts have $0 monthly maintenance fees and no minimum balance requirements.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Is my money insured?</summary>
+    <p>Yes, all deposits are FDIC-insured up to $250,000 per depositor.</p>
+  </details>
+</section>
+  <!-- Pure CSS Login Modal -->
+  <div class="modal-overlay login-modal" role="dialog" aria-modal="true" aria-labelledby="loginHeading">
+    <div class="modal-card">
+      <label for="login-modal-toggle" class="modal-close" aria-label="Close Modal">&times;</label>
+      <h2 id="loginHeading" class="modal-title">Log in to TrustPay</h2>
+      <p class="modal-subtitle">Access your account dashboard safely</p>
+
+      <form class="modal-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" name="email" placeholder="name@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <div class="flex justify-between align-center">
+            <label for="loginPassword">Password</label>
+            <a href="#forgot-password" class="forgot-link">Forgot?</a>
+          </div>
+          <input type="password" id="loginPassword" name="password" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="cta-btn full-width">Log In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Pure CSS Open Account Modal -->
+  <div class="modal-overlay account-modal" role="dialog" aria-modal="true" aria-labelledby="accountHeading">
+    <div class="modal-card">
+      <label for="account-modal-toggle" class="modal-close" aria-label="Close Modal">&times;</label>
+      <h2 id="accountHeading" class="modal-title">Open an Account</h2>
+      <p class="modal-subtitle">Join thousands of smart digital banking users</p>
+
+      <form class="modal-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Jane Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label for="accountEmail">Email Address</label>
+          <input type="email" id="accountEmail" name="email" placeholder="jane@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="accountType">Account Type</label>
+          <select id="accountType" name="accountType" required>
+            <option value="">Select Account Type</option>
+            <option value="savings">High-Yield Savings</option>
+            <option value="checking">Checking Account</option>
+            <option value="investment">Investment Portfolio</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="accountPassword">Create Password</label>
+          <input type="password" id="accountPassword" name="password" placeholder="Min. 8 characters" required>
+        </div>
+
+        <button type="submit" class="cta-btn full-width">Create Account</button>
+      </form>
+    </div>
+  </div>
 
 </body>
 </html>

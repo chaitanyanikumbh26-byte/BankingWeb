@@ -1,4 +1,4 @@
-/* CSS Reset & Global Standards */
+/* CSS Reset */
 *,
 *::before,
 *::after {
@@ -7,9 +7,13 @@
   box-sizing: border-box;
 }
 
-/* Flexbox Utilities */
+/* Layout Mechanics */
 .flex {
   display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .justify-between {
@@ -20,7 +24,10 @@
   align-items: center;
 }
 
-/* Layout Container */
+.gap-1 {
+  gap: 1rem;
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -30,29 +37,19 @@
   padding-right: 1.5rem;
 }
 
-/* Typography & Display Utilities */
+/* Helpers */
 .text-center {
   text-align: center;
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
+.mt-1 {
+  margin-top: 1rem;
 }
 
-/* Brand Theme Utilities */
 .bg-primary {
   background-color: #0047ab;
 }
 
-.bg-light {
-  background-color: #f8f9fa;
-}
-
 .text-primary {
   color: #0047ab;
-}
-
-.text-white {
-  color: #ffffff;
 }
