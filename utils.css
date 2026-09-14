@@ -6,7 +6,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+/* Add to top of utils.css */
+:root {
+  --primary: #0047ab;
+  --primary-hover: #003580;
+  --bg-surface: #ffffff;
+  --border-color: #e2e8f0;
+  --text-main: #333333;
+  --text-muted: #4a5568;
+}
 /* Layout Mechanics */
 .flex {
   display: flex;
